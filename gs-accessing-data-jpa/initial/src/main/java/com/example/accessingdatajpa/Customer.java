@@ -5,15 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity // It is a JPA entity. It is assumed that this entity is mapped to a table named Customer.
 public class Customer {
 
-    @Id // set the primary key
+    @Id // set the primary key,  JPA recognizes it as the object’s ID
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
 
+    // The default constructor exists only for the sake of JPA. You do not use it directly, so it is designated as protected.
     protected Customer() {}
 
     public Customer(String firstName, String lastName) {
